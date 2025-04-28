@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar (Flexbox) */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main Content (CSS Grid) */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column for mobile */
+            grid-gap: 20px;
+        }
+
+        .item {
+            background-color: #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .item h2 {
+            margin-top: 0;
+        }
+
+        /* Media Queries for Responsiveness */
+
+        /* Tablet View (min-width: 601px and max-width: 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+            }
+        }
+
+        /* Desktop View (min-width: 1025px) */
+        @media (min-width: 1025px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr); /* Three columns for desktops */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">My Website</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="item">
+            <h2>Section 1</h2>
+            <p>This is the content for section 1. It will adapt its width based on the screen size due to the CSS Grid layout.</p>
+        </div>
+        <div class="item">
+            <h2>Section 2</h2>
+            <p>More content for section 2. Notice how the layout changes as you resize the browser window.</p>
+        </div>
+        <div class="item">
+            <h2>Section 3</h2>
+            <p>Content of section 3. Flexbox is used for the navigation bar to ensure proper alignment of the logo and links.</p>
+        </div>
+        <div class="item">
+            <h2>Section 4</h2>
+            <p>This is another section within the grid layout.</p>
+        </div>
+        <div class="item">
+            <h2>Section 5</h2>
+            <p>And yet another section to demonstrate the responsive grid.</p>
+        </div>
+        <div class="item">
+            <h2>Section 6</h2>
+            <p>The final section in this example layout.</p>
+        </div>
+    </div>
+
+    <script>
+        // Basic script to log screen width for testing (optional)
+        function logScreenWidth() {
+            console.log("Screen Width:", window.innerWidth);
+        }
+        window.addEventListener('resize', logScreenWidth);
+        logScreenWidth(); // Log on initial load
+    </script>
+</body>
+</html>
